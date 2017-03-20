@@ -23,7 +23,7 @@ First of all, 21.py. Notice that I've changed the URL to fit the API's one, and 
 
 I've added all of the ones I know about, just to make sure I get as much data as possible with each API call (to avoid potentially going over the Yahoo! Finance limit - although we're way below the [the 2,000 requests/hour rate](http://stackoverflow.com/questions/9346582/what-is-the-query-limit-on-yahoos-finance-api)).
 
-
+```python
 	import urllib.request
 	import os
 	import time
@@ -58,7 +58,7 @@ I've added all of the ones I know about, just to make sure I get as much data as
 		    print(str(e))
 		    time.sleep(2)
 	Check_Yahoo()
-	
+```	
 	
 Moving over to 22.py. Remember that JSON is text - just like HTML. 
 
