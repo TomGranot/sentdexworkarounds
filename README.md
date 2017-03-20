@@ -1,27 +1,31 @@
-# sentdexworkarounds
-Tom's workaround for part 22 of Sentdex's Python for Investing
-
-
+# Workaround For Part 22 of Sentdex's Python for ML & Investing Tuotrials
 
 *Harrison - I hope you don't mind me posting this here - it's a solution to a problem I've encountered in one of your videos.*
 
-*If this violates some kind of rule or something feel free to delete it .*
+*If this violates some kind of rule or something feel free to let me know and I'll delete it .*
 
 ---
 
 Hi there,
 
-So, as you probably experienced for yourselves when running through the last few minutes of [Part 22](https://www.youtube.com/watch?v=5igqQ5V--tE&index=22&list=PLQVvvaa0QuDd0flgGphKCej-9jp-QdzZ3) of the great [Machine Learning for Investing With Python](https://www.youtube.com/playlist?list=PLQVvvaa0QuDd0flgGphKCej-9jp-QdzZ3) series, the Yahoo! Finance parsing seems to spit out a blank CSV file (aside fromt he 
+So, as you probably experienced for yourselves when running through the last few minutes of [Part 22](https://www.youtube.com/watch?v=5igqQ5V--tE&index=22&list=PLQVvvaa0QuDd0flgGphKCej-9jp-QdzZ3) of the great [Machine Learning for Investing With Python](https://www.youtube.com/playlist?list=PLQVvvaa0QuDd0flgGphKCej-9jp-QdzZ3) series, the Yahoo! Finance parsing seems to spit out a blank CSV file (specifically the *NO_NA* version).
 
-This is due to a change (which, as it turns out, [happens quite often at Yahoo!](https://www.elitetrader.com/et/threads/old-yahoo-finance-page-any-way-to-access-it.301296/#post-4306183)) to the "Key Statistics" page. When you inspect a certain element (Say, Enterprise Value/EVITDA) with FireBug (Firefox) /Developer Tools (Chrome) you can clearly see the value in the source code. However, when right-clicking and then pressing "View Source", that number is gone.
+This is due to a change (which, as it turns out, [happens quite often at Yahoo!](https://www.elitetrader.com/et/threads/old-yahoo-finance-page-any-way-to-access-it.301296/#post-4306183)) to the "Key Statistics" page. 
+
+When you inspect a certain element (Say, Enterprise Value/EVITDA) with FireBug (Firefox) /Developer Tools (Chrome) you can clearly see the value in the inspector's panel.
+However, when right-clicking and then pressing "View Source", that number is gone.
 
 Fortunately for us, there is a solution: Yahoo! Finance has a JSON (and also CSV, but we're gonna stick with JSON for now) API that lets us get all the data we need (and so much more ....).
 
 Alas, this requires a few changes to **21.py** (the file we use to gather the data) and **22.py** (the file we use to create the Dataset). 
 
-First of all, 21.py. Notice that I've changed the URL to fit the API's one, and added a few so-called "modules". These are basically names for different subsets of company data. 
+First of all, 21.py. 
 
-I've added all of the ones I know about, just to make sure I get as much data as possible with each API call (to avoid potentially going over the Yahoo! Finance limit - although we're way below the [the 2,000 requests/hour rate](http://stackoverflow.com/questions/9346582/what-is-the-query-limit-on-yahoos-finance-api)).
+Notice that I've changed the URL to fit the API's one, and added a few so-called "modules". These are basically names for different subsets of company data.
+
+[I've added all of the ones I know about](http://stackoverflow.com/questions/38567661/how-to-get-key-statistics-for-yahoo-finance-web-search-api), just to make sure I get as much data as possible with each API call (to avoid potentially going over the Yahoo! Finance limit - although we're way below the [the 2,000 requests/hour rate](http://stackoverflow.com/questions/9346582/what-is-the-query-limit-on-yahoos-finance-api)).
+
+## 21.py
 
 ```python
 	import urllib.request
@@ -68,9 +72,9 @@ Also, the regex has to change slightly. The resulting code looks like this:
 
 *Note: I could just parse the JSON and forget the regex, but for the sake of continuity I'm going to continue using Harrison's original method.*
 
-##22.py
+## 22.py
 
-
+```python
 	import pandas as pd
 	import os
 	import time
@@ -255,9 +259,9 @@ Also, the regex has to change slightly. The resulting code looks like this:
 	    df.to_csv("forward_sample_WITH_NA.csv")       
 
 	Forward()
+```	
 	
-	
-Note that this leaves us with the ability to **only create the *WITH_NA* file**.  The *NO_NA* file will still remain blank because we will **always** have at least 3 blanks - the ones I couldn't match.
+Note that this leaves us with the ability to **only create the *WITH_NA* file**.  The **NO_NA** file will still remain blank because we will **always** have at least 3 blanks - the ones I couldn't match. I can play around with the numbers to make it work, but this kind of beats the purpose - it will no longer be a file without any N/As.
 
 Hope this helps:)
 
