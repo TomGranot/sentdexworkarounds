@@ -1,5 +1,4 @@
 # Workaround For Part 22 of Sentdex's Python for ML & Investing Tuotrials
----
 
 Hi there,
 
