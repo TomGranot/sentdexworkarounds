@@ -1,9 +1,4 @@
 # Workaround For Part 22 of Sentdex's Python for ML & Investing Tuotrials
-
-*Harrison - I hope you don't mind me posting this here - it's a solution to a problem I've encountered in one of your videos.*
-
-*If this violates some kind of rule or something feel free to let me know and I'll delete it .*
-
 ---
 
 Hi there,
