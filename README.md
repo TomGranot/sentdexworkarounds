@@ -6,7 +6,7 @@ So, as you probably experienced for yourselves when running through the last few
 
 This is due to a change (which, as it turns out, [happens quite often at Yahoo!](https://www.elitetrader.com/et/threads/old-yahoo-finance-page-any-way-to-access-it.301296/#post-4306183)) to the "Key Statistics" page. 
 
-When you inspect a certain element (Say, Enterprise Value/EVITDA) with FireBug (Firefox) /Developer Tools (Chrome) you can clearly see the value in the inspector's panel.
+When you inspect a certain element (Say, Enterprise Value/EBITDA) with FireBug (Firefox)/Developer Tools (Chrome) you can clearly see the value in the inspector's panel.
 However, when right-clicking and then pressing "View Source", that number is gone.
 
 Fortunately for us, there is a solution: Yahoo! Finance has a JSON (and also CSV, but we're gonna stick with JSON for now) API that lets us get all the data we need (and so much more ....).
@@ -58,11 +58,11 @@ Notice that I've changed the URL to fit the API's one, and added a few so-called
 	Check_Yahoo()
 ```	
 	
-Moving over to 22.py. Remember that JSON is text - just like HTML. 
+Moving over to 22.py.
 
 The main changes here have to do with the names for each variable - I've added the new names to the `gather` variable inside the `Forward()` function.
 
-Also, the regex has to change slightly. The resulting code looks like this:
+Remember that JSON is text - just like HTML, so we can use the exact same method, except for a slight change in the regex itself to adapt to the new JSON format:
 
 *Note: I could just parse the JSON and forget the regex, but for the sake of continuity I'm going to continue using Harrison's original method.*
 
@@ -255,7 +255,9 @@ Also, the regex has to change slightly. The resulting code looks like this:
 	Forward()
 ```	
 	
-Note that this leaves us with the ability to **only create the *WITH_NA* file**.  The **NO_NA** file will still remain blank because we will **always** have at least 3 blanks - the ones I couldn't match. I can play around with the numbers to make it work, but this kind of beats the purpose - it will no longer be a file without any N/As.
+Note that this leaves us with the ability to **only create the *WITH_NA* file**.  The ***NO_NA*** file will still remain blank because we will **always** have at least 3 blanks - the ones I couldn't match. 
+
+I could, potentially, insert the same value for each of them to neutralise them, but I think it's best to just leave it be for a while and continue on with the tutorial.
 
 Hope this helps:)
 
