@@ -6,6 +6,8 @@ So, as you probably experienced for yourselves when running through the last few
 
 This is due to a change (which, as it turns out, [happens quite often at Yahoo!](https://www.elitetrader.com/et/threads/old-yahoo-finance-page-any-way-to-access-it.301296/#post-4306183)) to the "Key Statistics" page. 
 
+[I've got permission from Harrison](https://pythonprogramming.net/community/519/Scikit%20Learn%20Machine%20Learning%20Tutorial%20For%20Investing%20-%20Pt.%2022%20-%20Workaround/) to post this here, btw.
+
 When you inspect a certain element (Say, Enterprise Value/EBITDA) with FireBug (Firefox)/Developer Tools (Chrome) you can clearly see the value in the inspector's panel.
 However, when right-clicking and then pressing "View Source", that number is gone.
 
