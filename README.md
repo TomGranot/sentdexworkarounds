@@ -159,8 +159,8 @@ Remember that JSON is text - just like HTML, so we can use the exact same method
 		                         'Short Ratio',
 		                         'Short % of Float',
 		                         'Shares Short (prior ',
-					'Current Price',
-					'Shares Outstanding'                               
+					 'Current Price',
+					 'Shares Outstanding',                              
 		                         ##############
 		                         'Status'])
 
