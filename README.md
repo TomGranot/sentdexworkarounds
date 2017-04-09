@@ -111,8 +111,8 @@ Remember that JSON is text - just like HTML, so we can use the exact same method
 		                'shortRatio',
 		                'shortPercentOfFloat',
 		                'sharesShortPriorMonth',
-										'currentPrice',
-										'sharesOutstanding']):
+				'currentPrice',
+				'sharesOutstanding']):
 
 
 	    df = pd.DataFrame(columns = ['Date',
@@ -159,8 +159,8 @@ Remember that JSON is text - just like HTML, so we can use the exact same method
 		                         'Short Ratio',
 		                         'Short % of Float',
 		                         'Shares Short (prior ',
-														 'Current Price',
-														 'Shares Outstanding'                               
+					'Current Price',
+					'Shares Outstanding'                               
 		                         ##############
 		                         'Status'])
 
@@ -251,8 +251,8 @@ Remember that JSON is text - just like HTML, so we can use the exact same method
 		                        'Short Ratio':value_list[32],
 		                        'Short % of Float':value_list[33],
 		                        'Shares Short (prior ':value_list[34],
-														'Current Price': value_list[35],
-														'Shares Outstanding': value_list[36],
+					'Current Price': value_list[35],
+					'Shares Outstanding': value_list[36],
 		                        'Status':"N/A"}, ignore_index = True)
 		except Exception as e:
 		    pass
@@ -262,9 +262,14 @@ Remember that JSON is text - just like HTML, so we can use the exact same method
 	Forward()
 ```
 
-Note that this leaves us with the ability to **only create the *WITH_NA* file**.  The ***NO_NA*** file will still remain blank because we will **always** have at least 3 blanks - the ones I couldn't match.
+**Notes:**
+-----------
 
-I could, potentially, insert the same value for each of them to neutralize them, but I think it's best to just leave it be for now and continue on with the tutorial.
+1. This workaround leaves us with the ability to **only create the *WITH_NA* file**.  The ***NO_NA*** file will still remain blank because we will **always** have at least 1 blank - Price/Sales, which is still unanaswered for as of April 9th, 2017. [See discussion here](https://github.com/tomgs/sentdexworkarounds/issues/1).
+
+2. Note that there are 2 hand-made calculations here - Trailing P/E & Market Cap. Again, see my comment [here](https://github.com/tomgs/sentdexworkarounds/issues/1).
+
+3. I could, potentially, insert the same value for each of them to neutralize them, but I think it's best to just leave it be for now and continue on with the tutorial.
 
 Hope this helps,
 
