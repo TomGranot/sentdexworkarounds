@@ -265,11 +265,9 @@ Remember that JSON is text - just like HTML, so we can use the exact same method
 **Notes:**
 -----------
 
-1. This workaround leaves us with the ability to **only create the *WITH_NA* file**.  The ***NO_NA*** file will still remain blank because we will **always** have at least 1 blank - Price/Sales, which is still unanaswered for as of April 9th, 2017. [See discussion here](https://github.com/tomgs/sentdexworkarounds/issues/1).
+1. This workaround leaves us with the ability to **only create the *WITH_NA* file**.  The ***NO_NA*** file will still remain blank because we will **always** have at least 1 blank - Price/Sales, which is still unanaswered for as of April 9th, 2017. [See discussion here](https://github.com/tomgs/sentdexworkarounds/issues/1). I could, potentially, insert the same value for each ticker to neutralize this variable, but I think it's best to just leave it be for now and continue on with the tutorial.
 
 2. Note that there are 2 hand-made calculations here - Trailing P/E & Market Cap. Again, see my comment [here](https://github.com/tomgs/sentdexworkarounds/issues/1).
-
-3. I could, potentially, insert the same value for each of them to neutralize them, but I think it's best to just leave it be for now and continue on with the tutorial.
 
 Hope this helps,
 
