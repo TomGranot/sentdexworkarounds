@@ -217,7 +217,7 @@ Remember that JSON is text - just like HTML, so we can use the exact same method
 		                        'sp500_p_change':"N/A",
 		                        'Difference':"N/A",
 		                        'DE Ratio':value_list[0],
-		                        'Trailing P/E':value_list[35] / value_list[19],
+		                        'Trailing P/E': str( float(value_list[35]) / float(value_list[19]) ),
 		                        'Price/Sales':value_list[2],
 		                        'Price/Book':value_list[3],
 		                        'Profit Margin':value_list[4],
