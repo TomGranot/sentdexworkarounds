@@ -225,7 +225,7 @@ Remember that JSON is text - just like HTML, so we can use the exact same method
 		                        'Return on Assets':value_list[6],
 		                        'Return on Equity':value_list[7],
 		                        'Revenue Per Share':value_list[8],
-		                        'Market Cap':value_list[35] * value_list[36], #Multiplying Shares Outstanding * Current Price to determine Market Cap
+		                        'Market Cap':float(value_list[35])*value_list[36], #Multiplying Shares Outstanding * Current Price to determine Market Cap
 		                        'Enterprise Value':value_list[10],
 		                        'Forward P/E':value_list[11],
 		                        'PEG Ratio':value_list[12],
