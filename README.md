@@ -39,7 +39,7 @@ Notice that I've changed the URL to fit the API's one, and added a few so-called
 	    for e in stock_list[1:]:
 
 		try:
-		    e = e.replace("MY/PATH/TO/THE/TUTORIAL/FOLDER/_KeyStats\","")
+		    e = e.replace("MY/PATH/TO/THE/TUTORIAL/FOLDER/_KeyStats\\","")
 		    ## Changed the URL & added the modules
 		    link = "https://query2.finance.yahoo.com/v10/finance/quoteSummary/"+e.upper()+"?modules=assetProfile,financialData,defaultKeyStatistics,calendarEvents,incomeStatementHistory,cashflowStatementHistory,balanceSheetHistory"
 		    resp = urllib.request.urlopen(link).read()
